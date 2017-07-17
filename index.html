@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>The Math Magic</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="shape">
+    <svg class="mySvg"></svg>
+  </div>
+
+<div class="controls">
+  <div>
+    <span class="label">Points:</span> <input type = "range" id="points" value="200" min="10" max="500" step="1"/>
+    <span class="val"></span>
+  </div>
+  <div>
+    <span class="label">Multiplier:</span> <input type = "range" id="multiplier" value = "2" min="1" max="50" step="0.1"/>
+    <span class="val"></span>
+  </div>
+
+  <div>
+    <span class="label">Speed:</span> <input type = "range" id="speed" value = "0.1" min="0.1" max="1" step="0.1"/>
+    <span class="val"></span>
+  </div>
+
+  <div>
+    <div class="animateButton"> Animate </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
