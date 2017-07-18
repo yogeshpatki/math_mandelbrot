@@ -4,6 +4,8 @@
   height: 50vh;
   width: 50vh;
   margin-bottom:20px;
+  border:1px solid;
+  border-radius:50%;  
 }
 
 .shape svg {

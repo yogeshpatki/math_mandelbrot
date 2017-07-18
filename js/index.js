@@ -42,6 +42,18 @@ $(document).ready((function(){
   $('#spd').on('input',function(){
     $('#speed').val($(this).val());
   });
+
+  $('#rotate').on('input',function(){
+    $('#rtt').val($(this).val());
+    var rotation = "rotate("+$(this).val()+"deg)";
+    $('.shape').css('transform',rotation);
+  });
+
+  $('#rtt').on('input',function(){
+    $('#rotate').val($(this).val());
+    var rotation = "rotate("+$(this).val()+"deg)";
+    $('.shape').css('transform',rotation);
+  });
   
   draw($('.mySvg'), points ,2);
 
