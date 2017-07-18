@@ -122,10 +122,16 @@ function draw(svg, points, multiplier) {
 }
 
 function animate() {
+  console.log(document.getElementById('speed').value);
   var multiplier = document.getElementById("multiplier");
-  if (parseFloat(multiplier.value) < 50 && animating) {
-    multiplier.value = parseFloat(multiplier.value) + 1*document.getElementById('speed').value;
+  if (animating) {
+    multiplier.value = parseFloat(multiplier.value) + parseFloat(document.getElementById('speed').value);
+    console.log(multiplier.value);
     $('#multiplier').trigger('input');
     window.requestAnimationFrame(animate);
+    if(parseFloat(multiplier.value) == 100){
+      multiplier.value = 0;
+    }
+
   }
 }

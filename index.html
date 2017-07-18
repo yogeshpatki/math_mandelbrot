@@ -8,34 +8,40 @@
 </head>
 
 <body>
-  <div class="shape">
-    <svg class="mySvg"></svg>
-  </div>
+  <div class="flex-container">
+    <div>
+      <div class="shape">
+        <svg class="mySvg"></svg>
+      </div>
+    </div>
+    <div class="control-wrapper">
+    <div class="controls">
+      <div>
+        <span class="label">Points:</span> <input type = "range" id="points" value="200" min="10" max="500" step="1"/>
+        <input id="pts" type="number" class="val" value="200"/>
+      </div>
+      <div>
+        <span class="label">Multiplier:</span> <input type = "range" id="multiplier" value = "2" min="1" max="100" step="0.01"/>
+        <input id="mlt" type="number" class="val" value="2"/>
+      </div>
 
-<div class="controls">
-  <div>
-    <span class="label">Points:</span> <input type = "range" id="points" value="200" min="10" max="500" step="1"/>
-    <input id="pts" type="number" class="val" value="200"/>
-  </div>
-  <div>
-    <span class="label">Multiplier:</span> <input type = "range" id="multiplier" value = "2" min="1" max="50" step="0.1"/>
-    <input id="mlt" type="number" class="val" value="2"/>
-  </div>
+      <div>
+        <span class="label">Speed:</span> <input type = "range" id="speed" value = "0.1" min="0.01" max="1" step="0.01"/>
+        <input id="spd" type="number" class="val" value="0.1"/>
+      </div>
 
-  <div>
-    <span class="label">Speed:</span> <input type = "range" id="speed" value = "0.1" min="0.1" max="1" step="0.1"/>
-    <input id="spd" type="number" class="val" value="0.1"/>
-  </div>
+      <div>
+        <span class="label">Rotate:</span> <input type = "range" id="rotate" value = "0" min="0" max="359" step="1"/>
+        <input id="rtt" type="number" class="val" value="0"/>
+      </div>
 
-  <div>
-    <span class="label">Rotate:</span> <input type = "range" id="rotate" value = "0" min="0" max="359" step="1"/>
-    <input id="rtt" type="number" class="val" value="0"/>
-  </div>
+      <div>
+        <div class="animateButton"> Animate </div>
+      </div>
 
-  <div>
-    <div class="animateButton"> Animate </div>
+    </div>
+    </div>
   </div>
-</div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src="js/index.js"></script>
 </body>

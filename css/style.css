@@ -3,7 +3,6 @@
   min-width:250px;
   height: 50vh;
   width: 50vh;
-  margin-bottom:20px;
   border:1px solid;
   border-radius:50%;  
 }
@@ -34,7 +33,7 @@ input[type="number"] {
 }
 
 .animateButton {
-  margin:10px;
+  margin:10px auto;
   height:30px;
   width:150px;
   border:1px solid black;
@@ -43,4 +42,26 @@ input[type="number"] {
   line-height: 30px;
   background:#eee;
 }
+
+.controls {
+  text-align: center;
+  margin:auto;
+  width:50vh;
+  min-width:250px;
+  
+}
+
+.flex-container {
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.flex-container > div {
+  box-shadow: 8px 8px 20px -6px #555;
+  margin:15px;
+}
+.control-wrapper {
+  display:flex;
+}
+
 
