@@ -1,13 +1,17 @@
 var cx = 125,
     cy = 125,
-    r = 125;
+    r = 125
+    pointColor = "#ff4900",
+    lineColor = "#ff4900";
+
 var animating = false;
 $(document).ready((function(){
 
   cx = $('.mySvg').height() / 2;
   cy = cx;
   r = cx;
-  points = getPoints(200); 
+  points = getPoints(200);
+  
   
   $('#points').on('input',function(){
     var totalPoints = $(this).val();
@@ -54,6 +58,17 @@ $(document).ready((function(){
     var rotation = "rotate("+$(this).val()+"deg)";
     $('.shape').css('transform',rotation);
   });
+
+  $('input[type="color"]').on('input',function(){
+    var color = $(this).val();
+        target = $(this).data('target'),
+        selector = "svg "+target;
+        if(target ==="circle")
+          pointColor = $(this).val();
+        else
+          lineColor = $(this).val();
+        paint(selector,color);
+  });
   
   draw($('.mySvg'), points ,2);
 
@@ -68,18 +83,24 @@ $(document).ready((function(){
 
 }));
 
+function paint(selector,color) {
+  $(selector).css('stroke',color);
+  $(selector).css('fill',color);
+}
+
 function getPoint(point) {
   var elem = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     elem.setAttribute('r','2');
     elem.setAttribute('cx',point.x);
     elem.setAttribute('cy',point.y);
-    elem.setAttribute('fill','orangered');
+    elem.setAttribute('fill',pointColor);
+    
   return elem; 
 }
 
 function getLine(point1,point2) {
   var elem = document.createElementNS("http://www.w3.org/2000/svg", "line");
-  elem.setAttribute('stroke','orangered');
+  elem.setAttribute('stroke',lineColor);
   elem.setAttribute('x1',point1.x);
   elem.setAttribute('x2',point2.x);
   elem.setAttribute('y1',point1.y);
@@ -122,7 +143,6 @@ function draw(svg, points, multiplier) {
 }
 
 function animate() {
-  console.log(document.getElementById('speed').value);
   var multiplier = document.getElementById("multiplier");
   if (animating) {
     multiplier.value = parseFloat(multiplier.value) + parseFloat(document.getElementById('speed').value);
