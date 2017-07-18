@@ -17,8 +17,12 @@
   width:80px;
 }
 
-.controls div input {
+input[type="range"] {
   width:150px;
+}
+
+input[type="number"] {
+  width:50px;
 }
 
 .val {

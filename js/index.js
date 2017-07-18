@@ -6,27 +6,49 @@ $(document).ready((function(){
 
   cx = $('.mySvg').height() / 2;
   cy = cx;
-  r = cx; 
+  r = cx;
+  points = getPoints(200); 
   
   $('#points').on('input',function(){
     var totalPoints = $(this).val();
-    $(this).next().html(totalPoints);
-    draw($('.mySvg'),getPoints(totalPoints),$('#multiplier').val());
+    $(this).next().val(totalPoints);
+    points = getPoints(totalPoints);
+    draw($('.mySvg'),points,$('#multiplier').val());
+  });
+
+  $('#pts').on('input',function(){
+    var totalPoints = $(this).val();
+    $(this).prev().val(totalPoints);
+    points = getPoints(totalPoints);
+    draw($('.mySvg'),points,$('#multiplier').val());
   });
 
   $('#multiplier').on('input',function(){
     multiplier = $(this).val();
-    $(this).next().html(multiplier);
-    draw($('.mySvg'),getPoints($('#points').val()),$(this).val());
+    $(this).next().val(multiplier);
+    draw($('.mySvg'),points,$(this).val());
+  });
+
+  $('#mlt').on('input',function(){
+    multiplier = $(this).val();
+    $(this).prev().val(multiplier);
+    draw($('.mySvg'),points,$(this).val());
+  });
+
+  $('#speed').on('input',function(){
+    $('#spd').val($(this).val());
+  });
+
+  $('#spd').on('input',function(){
+    $('#speed').val($(this).val());
   });
   
-  draw($('.mySvg'),getPoints(200),2);
+  draw($('.mySvg'), points ,2);
 
   $('.animateButton').click(function(){
     if(!animating){
       animating = true;
       animate();
-      console.log('animating');
     }else{
       animating = false;
     }
@@ -77,7 +99,7 @@ function draw(svg, points, multiplier) {
   function ind(i) {
     return i % points.length;
   } 
-
+  
   for(var i = 0; i < points.length; i++){
     svg.append(getPoint(points[i]));
   }
